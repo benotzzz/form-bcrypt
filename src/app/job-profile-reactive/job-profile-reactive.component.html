@@ -1,0 +1,103 @@
+
+<ng-container ngFor*="let arr of array">
+    <div>
+     Job-Profile details
+     <h2>Email:<span>{{ displayEmail}}</span></h2> 
+     <h2>Company Name:<span>{{ displayComp}}</span> </h2> 
+     <h2>Company Location :<span>{{ displayLoc}}</span></h2> 
+     <h2>Job title:<span>{{ displayJob}}</span> </h2> 
+     <h2>Position:<span>{{ displayPos}}</span> </h2></div> 
+    
+   </ng-container>
+  
+  
+  
+  <mat-card class="login-page">
+    <br>
+    <br>
+    <mat-card-title>Job-Profile (Reactive)</mat-card-title>
+    <mat-card-content>
+      <form class="login-form data-form"
+      [formGroup]= "form"
+      (ngSubmit)="onSubmit()" >
+    
+        <mat-form-field>
+          <input matInput
+           type="email"
+           formControlName="email"
+           name="email"
+           required
+           placeholder="Email"
+           
+           />
+  
+        <mat-error *ngIf="email.errors?.required">
+            The email is required
+        </mat-error>
+  
+        <mat-error *ngIf="email.errors?.email">
+          The email you enter is not valid
+        </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput
+           type="company"
+           formControlName="company"
+           name="company"
+           placeholder="Company location" />
+           <mat-error *ngIf="company.errors?.required">
+            The company is required
+        </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput
+           type="location"
+           formControlName="location"
+           name="location"
+           placeholder="Location" />
+  
+           <mat-error *ngIf="location.errors?.required">
+            The location is required
+        </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput
+          type="jobtitle"
+          formControlName="jobtitle"
+          name="jobtitle"
+          placeholder="Job title" />
+  
+  
+          <mat-error *ngIf="jobtitle.errors?.required">
+            The job title is required
+        </mat-error>
+  
+  
+        </mat-form-field>
+  
+        <mat-form-field>
+        <input matInput
+         type="position"
+         name="position"
+         formControlName="position"
+         placeholder="Position" />
+         <mat-error *ngIf="position.errors?.required">
+          The job title is required
+      </mat-error>
+        </mat-form-field>
+        
+  
+        <button (click)="getValue(email.value,
+        company.value,
+        location.value,
+        jobtitle.value,
+        position.value)" 
+  
+         mat-raised-button color="warn" [disabled]= "!form.valid" >Submit</button>
+      </form>
+    </mat-card-content> 
+  </mat-card>
+  

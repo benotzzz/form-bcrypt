@@ -1,0 +1,30 @@
+.login-page {
+    max-width: 350px;
+    
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .form-val {
+    margin-top: 1px;
+  }
+
+div{
+  width: 100%;
+  margin-left: 50%;
+  height: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  
+  
+
+}
+
+  span{
+      color: red;
+
+  }

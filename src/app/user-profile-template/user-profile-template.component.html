@@ -1,0 +1,119 @@
+
+<ng-container ngFor*="let arr of array">
+    <div>
+     User-Profile details
+     <h2>Email:<span>{{ displayEmail}}</span></h2> 
+     <h2>Password:<span>{{ displayPass}}</span> </h2> 
+     <h2>Student ID: <span>{{ displayID}}</span></h2> 
+     <h2>Name:<span>{{ displayName}}</span> </h2> 
+     <h2>Gender: <span>{{ displayGender}}</span></h2></div> 
+    
+   </ng-container>
+   
+   <mat-card class="login-page">
+   
+     <mat-card-title>User-Profile (Template)</mat-card-title>
+     <mat-card-content>
+       <form class="login-form data-form"
+       (ngSubmit)="onSubmit(loginForm)"
+       #loginForm="ngForm">
+       
+         <mat-form-field>
+           <input matInput type="email" 
+           name="email" 
+           ngModel
+           email 
+           placeholder="Email" 
+           required
+           #email="ngModel"
+           />
+   
+           <mat-error *ngIf="email.errors?.required">
+               The email is required
+           </mat-error>
+   
+           <mat-error *ngIf="email.errors?.email">
+             The email you enter is not valid
+         </mat-error>
+   
+         </mat-form-field>
+   
+         <mat-form-field>
+           <input matInput type="password" 
+           name="password" 
+           ngModel 
+           placeholder="Password"
+           required
+           minlength="8"
+           #password="ngModel"
+           />
+           <mat-error *ngIf="password.errors?.required">
+             The password is required
+         </mat-error>
+         <mat-error *ngIf="password.errors?.minlength">
+           The password must be atleast 8 characters
+       </mat-error>
+   
+         </mat-form-field>
+   
+         <mat-form-field>
+           <input matInput type="studentid"
+           name="studentid"
+           ngModel
+           placeholder="Student ID"
+           required
+           #studid="ngModel"
+           
+           
+           />
+           <mat-error *ngIf="studid.errors?.required">
+             The student ID is required
+         </mat-error>
+         
+         </mat-form-field>
+   
+         <mat-form-field>
+           <input matInput type="fullname" 
+           name="fullname" 
+           ngModel 
+           placeholder="Full name" 
+           required
+           #fname="ngModel"
+           />
+           <mat-error *ngIf="fname.errors?.required">
+             Your full name is required
+         </mat-error>
+         </mat-form-field>
+   
+         <mat-form-field>
+           <input matInput type="gender" 
+           name="gender" 
+           ngModel 
+           placeholder="Gender"
+           required
+           #gender="ngModel"
+            />
+            <mat-error *ngIf="gender.errors?.required">
+             Your gender is required
+         </mat-error>
+         </mat-form-field>
+         
+   
+   
+         <button (click)="getValue(email.value,
+         password.value,
+         studid.value,
+         fname.value,
+         gender.value)" 
+         mat-raised-button color="accent" [disabled]="!loginForm.valid">
+         Submit</button>
+         
+       </form>
+     </mat-card-content>
+      
+   </mat-card>
+   
+       
+   
+   
+   
